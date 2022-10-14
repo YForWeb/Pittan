@@ -50,7 +50,7 @@ init : () -> (Model, Cmd Msg)
 init _ =
     ( Model []
           aKaraN
-          (shikaku++[Cell 7 4])
+          (shikaku++[Cell 7 5])
           {x=0, y=0} {x=0, y=0} Nothing 0
     , Cmd.none
     )
