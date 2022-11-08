@@ -1,4 +1,4 @@
-module Pittan2 exposing (..)
+module Pittan01 exposing (..)
 
 import Browser
 import Html exposing (Html)
@@ -68,18 +68,20 @@ init _ =
     )
 
 initConf : List Piece
-initConf = [Piece 0 3 3 "あ" True
-           ,Piece 1 3 4 "い" True]
+initConf = [Piece 0 3 2 "は" True
+           ,Piece 1 4 2 "あ" True
+           ,Piece 2 5 2 "と" True
+           ]
 
 aKaraN : List String
-aKaraN = [ "あ", "あ", "あ", "い", "う", "え", "お"
+aKaraN = [ "あ", "あ", "あ", "ぁ", "い", "ぃ", "う", "ぅ", "え", "ぇ", "お", "ぉ"
          , "か", "き", "く", "け", "こ"
          , "さ", "し", "す", "せ", "そ"
-         , "た", "ち", "つ", "て", "と"
+         , "た", "ち", "つ", "っ", "て", "と"
          , "な", "に", "ぬ", "ね", "の"
          , "は", "ひ", "ふ", "へ", "ほ"
          , "ま", "み", "む", "め", "も"
-         , "や", "ゆ", "よ"
+         , "や", "ゃ", "ゆ", "ゅ", "よ", "ょ"
          , "ら", "り", "る", "れ", "ろ"
          , "わ"
          , "ん"
@@ -88,18 +90,57 @@ aKaraN = [ "あ", "あ", "あ", "い", "う", "え", "お"
          , "だ", "ぢ", "づ", "で", "ど"
          , "ば", "び", "ぶ", "べ", "ぼ"
          , "ぱ", "ぴ", "ぷ", "ぺ", "ぽ"
-         , "ぁ", "ぃ", "ぅ", "ぇ", "ぉ"
-         , "っ"
-         , "ゃ", "ゅ", "ょ"
          ]
 
 shikaku : Board
 shikaku  =
-    List.concat <|
+  {-  List.concat <|
         List.map (\x ->
                       List.map (\y -> Cell x y) <| List.range 3 4
                  )
-            <| List.range 3 5
+            <| List.range 3 4 -}
+            [
+             {x=3,y=2}
+            ,{x=3,y=3}
+            ,{x=3,y=4}
+            ,{x=3,y=5}
+            ,{x=4,y=1}
+            ,{x=4,y=2}
+            ,{x=4,y=3}
+            ,{x=4,y=4}
+            ,{x=4,y=5}
+            ,{x=4,y=6}
+            ,{x=5,y=1}
+            ,{x=5,y=2}
+            ,{x=5,y=3}
+            ,{x=5,y=6}
+            ,{x=6,y=2}
+            ,{x=6,y=3}
+            ,{x=6,y=6}
+            ,{x=6,y=7}
+            ,{x=7,y=3}
+            ,{x=7,y=6}
+            ,{x=7,y=7}
+            ,{x=7,y=8}
+            ,{x=8,y=2}
+            ,{x=8,y=3}
+            ,{x=8,y=6}
+            ,{x=8,y=7}
+            ,{x=9,y=1}
+            ,{x=9,y=2}
+            ,{x=9,y=3}
+            ,{x=9,y=6}
+            ,{x=10,y=1}
+            ,{x=10,y=2}
+            ,{x=10,y=3}
+            ,{x=10,y=4}
+            ,{x=10,y=5}
+            ,{x=10,y=6}
+            ,{x=11,y=2}
+            ,{x=11,y=3}
+            ,{x=11,y=4}
+            ,{x=11,y=5}
+            ]
 
 
 update : Msg -> Model -> (Model, Cmd Msg)
@@ -307,8 +348,8 @@ pieceView piece model =
         Svg.g ([ transform dstring ] ++msg )
             [ rect [ width (String.fromInt unit)
                    , height (String.fromInt unit)
-                   , fill "gray"
-                   , fillOpacity "0.3"
+                   , fill "red"
+                   , fillOpacity "0.4"
                    , stroke "black"
                    ]
                   []
@@ -327,7 +368,8 @@ cellView cell =
          ,width (String.fromInt unit)
          ,height (String.fromInt unit)
          ,stroke "black"
-         ,fill "none"
+         ,strokeWidth "2px"
+         ,fill "pink"
          ][]
 
 boardView : Model -> Svg Msg
@@ -338,9 +380,9 @@ boardView model =
              [rect
                   [ width (String.fromInt unit)
                   , height (String.fromInt unit)
-                  , fill "yellow"
+                  , fill "red"
                   , fillOpacity "0.3"
-                  , stroke "red"
+                  , stroke "yellow"
                   , strokeWidth "5px"
                   ][]
               ]
@@ -365,9 +407,10 @@ candView model =
               ]
             [rect [ width (String.fromInt unit)
                   , height (String.fromInt unit)
-                  , fill "gray"
-                  , fillOpacity "0.3"
+                  , fill "yellow"
+                  , fillOpacity "0.1"
                   , stroke "black"
+                  , strokeWidth "3px"
                   ,Svg.Attributes.clipPath "url(#candClip)"
                   ]
                  []
@@ -410,8 +453,8 @@ candView model =
 view : Model -> Html Msg
 view model =
     Html.div []
-        [ svg [ width "600"
-              , height "600"
+        [ svg [ width "800"
+              , height "800"
               , P.onMove (\event -> PMove
                               { x=Tuple.first event.pointer.offsetPos
                               , y=Tuple.second event.pointer.offsetPos
@@ -436,13 +479,15 @@ view model =
                    ] ++
                    [candView model] ++
                    (List.map (\p -> pieceView p model) model.conf) ++
-                   [Svg.text_ [x "200"
-                              ,y "250"
+                   [Svg.text_ [x "300"
+                              ,y "200"
                               ,fontSize "170"][if model.completed then
                                                 Html.text "💯"
                                                else
                                                  Html.text ""]]
               )
+        , Html.br [][]
+        , Html.a [ Html.Attributes.href "index.html"][Html.text "メニュー"]
         , Html.ul [] (List.map (\w -> Html.li [][Html.text w]) model.foundWords)
         ]
 

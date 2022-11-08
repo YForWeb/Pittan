@@ -1,4 +1,4 @@
-module Pittan2 exposing (..)
+module Kaki2 exposing (..)
 
 import Browser
 import Html exposing (Html)
@@ -28,7 +28,6 @@ type alias Model = { conf: Conf
                    , cursor: Int
                    , newWordsAt: List (List Cell)
                    , foundWords: List String
-                   , completed: Bool
                    }
 
 
@@ -63,16 +62,16 @@ init _ =
           {x=0, y=0} {x=0, y=0} Nothing 0
           []
           []
-          False
     , Cmd.none
     )
 
 initConf : List Piece
-initConf = [Piece 0 3 3 "あ" True
-           ,Piece 1 3 4 "い" True]
+initConf = [Piece 0 4 3 "か" False
+           ,Piece 1 4 4 "き" False]
 
 aKaraN : List String
-aKaraN = [ "あ", "あ", "あ", "い", "う", "え", "お"
+aKaraN = ["か", "か", "か", "き", "き", "き"
+         , "あ", "い", "う", "え", "お"
          , "か", "き", "く", "け", "こ"
          , "さ", "し", "す", "せ", "そ"
          , "た", "ち", "つ", "て", "と"
@@ -97,9 +96,9 @@ shikaku : Board
 shikaku  =
     List.concat <|
         List.map (\x ->
-                      List.map (\y -> Cell x y) <| List.range 3 4
+                      List.map (\y -> Cell x y) <| List.range 3 6
                  )
-            <| List.range 3 5
+            <| List.range 4 8
 
 
 update : Msg -> Model -> (Model, Cmd Msg)
@@ -122,7 +121,7 @@ update msg model =
                               List.map (\p -> case model.moving of
                                                   Just id ->
                                                       if id == p.id then
-                                                          {p | x=x, y=y, used=True}
+                                                          {p | x=x, y=y}
                                                       else
                                                           p
                                                   _  -> p
@@ -131,12 +130,6 @@ update msg model =
                               List.filter (\p -> p.id /= (Maybe.withDefault (-1) <| model.moving)) model.conf
                 makeWord = valid newConf (Cell x y)
                 newWords = fromDictionary newConf (Cell x y)
-                putChars = List.map .c model.conf
-                initialChars = List.map .c initConf
-                removeChar c list =
-                  List.sort <|
-                  List.append (List.drop 1 (List.filter (\d -> c==d) list))
-                  (List.filter (\d -> c/=d) list)
             in
                 ( {model | startedAt = {x=0, y=0}
                   , nowAt = {x=0, y=0}
@@ -145,13 +138,8 @@ update msg model =
                                newConf
                            else
                               List.filter (\p -> p.id /= (Maybe.withDefault (-1) <| model.moving)) model.conf
-                  , candidates = if List.length makeWord > 0 then
-                                     List.foldl (\c list -> removeChar c list) model.candidates putChars
-                                 else
-                                   model.candidates
                   , newWordsAt = makeWord
                   , foundWords = model.foundWords ++ newWords
-                  , completed = (List.length model.conf) == (List.length model.board)
                   }
                 , Cmd.none
                 )
@@ -198,7 +186,7 @@ valid conf cell  =
         hWordAt range =
             Dict.member  (String.concat <| List.map .c <| List.concat <|
                 List.map (\x -> List.filter (\p -> p.x == x) row) range)
-                joukyu
+                shokyu
         hWords = Debug.log "horizontal" <|
                  List.foldl (\range cells ->
                                  if hWordAt range then
@@ -222,7 +210,7 @@ valid conf cell  =
         vWordAt range =
             Dict.member (String.concat <| List.map .c <| List.concat <|
                              List.map (\y -> List.filter (\p -> p.y == y) col) range)
-                joukyu
+                shokyu
         vWords = Debug.log "vertical" <|
                  List.foldl (\range cells -> if vWordAt range then
                                                  cells++[List.map (\y -> Cell (cell.x) y) range]
@@ -295,19 +283,17 @@ pieceView piece model =
                   (String.fromFloat ((toFloat (piece.x*unit)) + dx)) ++
                   ", " ++
                   (String.fromFloat ((toFloat (piece.y*unit)) + dy)) ++ ")"
-        msg = if piece.used then
-                  []
-              else
-                [ P.onDown (\event -> PDown piece.id
-                                { x=Tuple.first event.pointer.offsetPos
-                                , y=Tuple.second event.pointer.offsetPos
-                                }
-                           )]
     in
-        Svg.g ([ transform dstring ] ++msg )
+        Svg.g [ transform dstring
+              , P.onDown (\event -> PDown piece.id
+                              { x=Tuple.first event.pointer.offsetPos
+                              , y=Tuple.second event.pointer.offsetPos
+                              }
+                         )
+              ]
             [ rect [ width (String.fromInt unit)
                    , height (String.fromInt unit)
-                   , fill "gray"
+                   , fill "brown"
                    , fillOpacity "0.3"
                    , stroke "black"
                    ]
@@ -327,7 +313,7 @@ cellView cell =
          ,width (String.fromInt unit)
          ,height (String.fromInt unit)
          ,stroke "black"
-         ,fill "none"
+         ,fill "orange"
          ][]
 
 boardView : Model -> Svg Msg
@@ -342,8 +328,16 @@ boardView model =
                   , fillOpacity "0.3"
                   , stroke "red"
                   , strokeWidth "5px"
-                  ][]
-              ]
+                  ]
+                  []
+             ,circle
+                 [cx "100"
+                 ,cy "-100"
+                 ,fill "none"
+                 ,stroke "black"
+                 ,r "50"
+                 ][]
+             ]
 
         ]
 
@@ -435,13 +429,7 @@ view model =
                         ]
                    ] ++
                    [candView model] ++
-                   (List.map (\p -> pieceView p model) model.conf) ++
-                   [Svg.text_ [x "200"
-                              ,y "250"
-                              ,fontSize "170"][if model.completed then
-                                                Html.text "💯"
-                                               else
-                                                 Html.text ""]]
+                   (List.map (\p -> pieceView p model) model.conf)
               )
         , Html.ul [] (List.map (\w -> Html.li [][Html.text w]) model.foundWords)
         ]
