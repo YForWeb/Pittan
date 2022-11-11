@@ -25376,6 +25376,7 @@ var $author$project$Pittan03$PMove = function (a) {
 var $author$project$Pittan03$PUp = function (a) {
 	return {$: 'PUp', a: a};
 };
+var $elm$html$Html$a = _VirtualDom_node('a');
 var $elm$svg$Svg$Attributes$class = _VirtualDom_attribute('class');
 var $andrewMacmurray$elm_simple_animation$Internal$Animation$duration_ = function (_v0) {
 	var d = _v0.a;
@@ -26319,6 +26320,7 @@ var $author$project$Pittan03$boardView = function (model) {
 						]))
 				])));
 };
+var $elm$html$Html$br = _VirtualDom_node('br');
 var $author$project$Pittan03$CursorMinus = {$: 'CursorMinus'};
 var $author$project$Pittan03$CursorPlus = {$: 'CursorPlus'};
 var $author$project$Pittan03$GenPiece = F2(
@@ -26599,6 +26601,20 @@ var $author$project$Pittan03$candView = function (model) {
 };
 var $elm$svg$Svg$clipPath = $elm$svg$Svg$trustedNode('clipPath');
 var $elm$html$Html$div = _VirtualDom_node('div');
+var $elm$json$Json$Encode$string = _Json_wrap;
+var $elm$html$Html$Attributes$stringProperty = F2(
+	function (key, string) {
+		return A2(
+			_VirtualDom_property,
+			key,
+			$elm$json$Json$Encode$string(string));
+	});
+var $elm$html$Html$Attributes$href = function (url) {
+	return A2(
+		$elm$html$Html$Attributes$stringProperty,
+		'href',
+		_VirtualDom_noJavaScriptUri(url));
+};
 var $elm$svg$Svg$Attributes$id = _VirtualDom_attribute('id');
 var $elm$html$Html$li = _VirtualDom_node('li');
 var $mpizenberg$elm_pointer_events$Html$Events$Extra$Pointer$onMove = A2($mpizenberg$elm_pointer_events$Html$Events$Extra$Pointer$onWithOptions, 'pointermove', $mpizenberg$elm_pointer_events$Html$Events$Extra$Pointer$defaultOptions);
@@ -26768,6 +26784,17 @@ var $author$project$Pittan03$view = function (model) {
 												model.completed ? $elm$html$Html$text('💯') : $elm$html$Html$text('')
 											]))
 									])))))),
+				A2($elm$html$Html$br, _List_Nil, _List_Nil),
+				A2(
+				$elm$html$Html$a,
+				_List_fromArray(
+					[
+						$elm$html$Html$Attributes$href('index.html')
+					]),
+				_List_fromArray(
+					[
+						$elm$html$Html$text('メニュー')
+					])),
 				A2(
 				$elm$html$Html$ul,
 				_List_Nil,
