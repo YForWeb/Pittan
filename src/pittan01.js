@@ -1,17 +1,3 @@
-<!DOCTYPE HTML>
-<html>
-<head>
-  <meta charset="UTF-8">
-  <title>Pittan03</title>
-  <style>body { padding: 0; margin: 0; }</style>
-</head>
-
-<body>
-
-<pre id="elm"></pre>
-
-<script>
-try {
 (function(scope){
 'use strict';
 
@@ -5158,7 +5144,7 @@ var $elm$core$Task$perform = F2(
 				A2($elm$core$Task$map, toMessage, task)));
 	});
 var $elm$browser$Browser$element = _Browser_element;
-var $author$project$Pittan03$Model = function (conf) {
+var $author$project$Pittan01$Model = function (conf) {
 	return function (candidates) {
 		return function (board) {
 			return function (startedAt) {
@@ -5179,55 +5165,76 @@ var $author$project$Pittan03$Model = function (conf) {
 		};
 	};
 };
-var $author$project$Pittan03$aKaraN = _List_fromArray(
-	['あ', 'あ', 'あ', 'あ', 'か', 'か', 'か', 'さ', 'さ', 'さ', 'た', 'た', 'た', 'な', 'な', 'な', 'は', 'は', 'は', 'ま', 'ま', 'ま', 'や', 'や', 'や', 'ら', 'ら', 'ら', 'わ', 'わ', 'わ']);
-var $author$project$Pittan03$Piece = F5(
+var $author$project$Pittan01$aKaraN = _List_fromArray(
+	['あ', 'あ', 'あ', 'ぁ', 'い', 'ぃ', 'う', 'ぅ', 'え', 'ぇ', 'お', 'ぉ', 'か', 'き', 'く', 'け', 'こ', 'さ', 'し', 'す', 'せ', 'そ', 'た', 'ち', 'つ', 'っ', 'て', 'と', 'な', 'に', 'ぬ', 'ね', 'の', 'は', 'ひ', 'ふ', 'へ', 'ほ', 'ま', 'み', 'む', 'め', 'も', 'や', 'ゃ', 'ゆ', 'ゅ', 'よ', 'ょ', 'ら', 'り', 'る', 'れ', 'ろ', 'わ', 'ん', 'が', 'ぎ', 'ぐ', 'げ', 'ご', 'ざ', 'じ', 'ず', 'ぜ', 'ぞ', 'だ', 'ぢ', 'づ', 'で', 'ど', 'ば', 'び', 'ぶ', 'べ', 'ぼ', 'ぱ', 'ぴ', 'ぷ', 'ぺ', 'ぽ']);
+var $author$project$Pittan01$Piece = F5(
 	function (id, x, y, c, used) {
 		return {c: c, id: id, used: used, x: x, y: y};
 	});
-var $author$project$Pittan03$initConf = _List_fromArray(
+var $author$project$Pittan01$initConf = _List_fromArray(
 	[
-		A5($author$project$Pittan03$Piece, 0, 6, 1, 'あ', true)
+		A5($author$project$Pittan01$Piece, 0, 3, 2, 'は', true),
+		A5($author$project$Pittan01$Piece, 1, 4, 2, 'あ', true),
+		A5($author$project$Pittan01$Piece, 2, 5, 2, 'と', true)
 	]);
 var $elm$core$Platform$Cmd$batch = _Platform_batch;
 var $elm$core$Platform$Cmd$none = $elm$core$Platform$Cmd$batch(_List_Nil);
-var $author$project$Pittan03$shikaku = _List_fromArray(
+var $author$project$Pittan01$shikaku = _List_fromArray(
 	[
-		{x: 3, y: 6},
-		{x: 3, y: 7},
+		{x: 3, y: 2},
+		{x: 3, y: 3},
+		{x: 3, y: 4},
+		{x: 3, y: 5},
+		{x: 4, y: 1},
+		{x: 4, y: 2},
+		{x: 4, y: 3},
 		{x: 4, y: 4},
 		{x: 4, y: 5},
 		{x: 4, y: 6},
+		{x: 5, y: 1},
 		{x: 5, y: 2},
 		{x: 5, y: 3},
-		{x: 5, y: 4},
-		{x: 5, y: 5},
-		{x: 6, y: 1},
+		{x: 5, y: 6},
 		{x: 6, y: 2},
-		{x: 6, y: 5},
-		{x: 7, y: 2},
+		{x: 6, y: 3},
+		{x: 6, y: 6},
+		{x: 6, y: 7},
 		{x: 7, y: 3},
-		{x: 7, y: 4},
-		{x: 7, y: 5},
-		{x: 8, y: 4},
-		{x: 8, y: 5},
+		{x: 7, y: 6},
+		{x: 7, y: 7},
+		{x: 7, y: 8},
+		{x: 8, y: 2},
+		{x: 8, y: 3},
 		{x: 8, y: 6},
+		{x: 8, y: 7},
+		{x: 9, y: 1},
+		{x: 9, y: 2},
+		{x: 9, y: 3},
 		{x: 9, y: 6},
-		{x: 9, y: 7}
+		{x: 10, y: 1},
+		{x: 10, y: 2},
+		{x: 10, y: 3},
+		{x: 10, y: 4},
+		{x: 10, y: 5},
+		{x: 10, y: 6},
+		{x: 11, y: 2},
+		{x: 11, y: 3},
+		{x: 11, y: 4},
+		{x: 11, y: 5}
 	]);
-var $author$project$Pittan03$init = function (_v0) {
+var $author$project$Pittan01$init = function (_v0) {
 	return _Utils_Tuple2(
-		$author$project$Pittan03$Model($author$project$Pittan03$initConf)($author$project$Pittan03$aKaraN)($author$project$Pittan03$shikaku)(
+		$author$project$Pittan01$Model($author$project$Pittan01$initConf)($author$project$Pittan01$aKaraN)($author$project$Pittan01$shikaku)(
 			{x: 0, y: 0})(
 			{x: 0, y: 0})($elm$core$Maybe$Nothing)(0)(_List_Nil)(_List_Nil)(false),
 		$elm$core$Platform$Cmd$none);
 };
 var $elm$core$Platform$Sub$batch = _Platform_batch;
 var $elm$core$Platform$Sub$none = $elm$core$Platform$Sub$batch(_List_Nil);
-var $author$project$Pittan03$subscriptions = function (model) {
+var $author$project$Pittan01$subscriptions = function (model) {
 	return $elm$core$Platform$Sub$none;
 };
-var $author$project$Pittan03$Cell = F2(
+var $author$project$Pittan01$Cell = F2(
 	function (x, y) {
 		return {x: x, y: y};
 	});
@@ -24615,7 +24622,7 @@ var $elm$core$Maybe$withDefault = F2(
 			return _default;
 		}
 	});
-var $author$project$Pittan03$fromDictionary = F2(
+var $author$project$Pittan01$fromDictionary = F2(
 	function (conf, cell) {
 		var row = A2(
 			$elm$core$Debug$log,
@@ -24924,7 +24931,7 @@ var $elm$core$Basics$neq = _Utils_notEqual;
 var $elm$core$List$sort = function (xs) {
 	return A2($elm$core$List$sortBy, $elm$core$Basics$identity, xs);
 };
-var $author$project$Pittan03$unit = 60;
+var $author$project$Pittan01$unit = 60;
 var $elm$core$Dict$member = F2(
 	function (key, dict) {
 		var _v0 = A2($elm$core$Dict$get, key, dict);
@@ -24934,7 +24941,7 @@ var $elm$core$Dict$member = F2(
 			return false;
 		}
 	});
-var $author$project$Pittan03$valid = F2(
+var $author$project$Pittan01$valid = F2(
 	function (conf, cell) {
 		var row = A2(
 			$elm$core$Debug$log,
@@ -25068,13 +25075,18 @@ var $author$project$Pittan03$valid = F2(
 									A2(
 									$elm$core$List$map,
 									function (x) {
-										return A2($author$project$Pittan03$Cell, x, cell.y);
+										return A2($author$project$Pittan01$Cell, x, cell.y);
 									},
 									range)
 								])) : cells;
 					}),
 				_List_Nil,
-				hRanges));
+				A2(
+					$elm$core$List$filter,
+					function (range) {
+						return $elm$core$List$length(range) > 1;
+					},
+					hRanges)));
 		var col = A2(
 			$elm$core$List$sortBy,
 			function ($) {
@@ -25198,13 +25210,18 @@ var $author$project$Pittan03$valid = F2(
 									A2(
 									$elm$core$List$map,
 									function (y) {
-										return A2($author$project$Pittan03$Cell, cell.x, y);
+										return A2($author$project$Pittan01$Cell, cell.x, y);
 									},
 									range)
 								])) : cells;
 					}),
 				_List_Nil,
-				vRanges));
+				A2(
+					$elm$core$List$filter,
+					function (range) {
+						return $elm$core$List$length(range) > 1;
+					},
+					vRanges)));
 		return A2(
 			$elm$core$List$filter,
 			function (range) {
@@ -25212,7 +25229,7 @@ var $author$project$Pittan03$valid = F2(
 			},
 			_Utils_ap(hWords, vWords));
 	});
-var $author$project$Pittan03$update = F2(
+var $author$project$Pittan01$update = F2(
 	function (msg, model) {
 		switch (msg.$) {
 			case 'PDown':
@@ -25236,8 +25253,8 @@ var $author$project$Pittan03$update = F2(
 					$elm$core$Platform$Cmd$none);
 			case 'PUp':
 				var pos = msg.a;
-				var y = $elm$core$Basics$floor(pos.y / $author$project$Pittan03$unit);
-				var x = $elm$core$Basics$floor(pos.x / $author$project$Pittan03$unit);
+				var y = $elm$core$Basics$floor(pos.y / $author$project$Pittan01$unit);
+				var x = $elm$core$Basics$floor(pos.x / $author$project$Pittan01$unit);
 				var removeChar = F2(
 					function (c, list) {
 						return $elm$core$List$sort(
@@ -25267,7 +25284,7 @@ var $author$project$Pittan03$update = F2(
 					model.conf);
 				var onCell = A2(
 					$elm$core$List$member,
-					A2($author$project$Pittan03$Cell, x, y),
+					A2($author$project$Pittan01$Cell, x, y),
 					model.board);
 				var newConf = onCell ? A2(
 					$elm$core$List$map,
@@ -25291,12 +25308,12 @@ var $author$project$Pittan03$update = F2(
 					},
 					model.conf);
 				var newWords = A2(
-					$author$project$Pittan03$fromDictionary,
+					$author$project$Pittan01$fromDictionary,
 					newConf,
-					A2($author$project$Pittan03$Cell, x, y));
+					A2($author$project$Pittan01$Cell, x, y));
 				var newlyAddedChar = A2(
 					$elm$core$Maybe$withDefault,
-					A5($author$project$Pittan03$Piece, -1, x, y, '', false),
+					A5($author$project$Pittan01$Piece, -1, x, y, '', false),
 					$elm$core$List$head(
 						A2(
 							$elm$core$List$filter,
@@ -25305,15 +25322,15 @@ var $author$project$Pittan03$update = F2(
 							},
 							newConf))).c;
 				var makeWord = A2(
-					$author$project$Pittan03$valid,
+					$author$project$Pittan01$valid,
 					newConf,
-					A2($author$project$Pittan03$Cell, x, y));
+					A2($author$project$Pittan01$Cell, x, y));
 				var initialChars = A2(
 					$elm$core$List$map,
 					function ($) {
 						return $.c;
 					},
-					$author$project$Pittan03$initConf);
+					$author$project$Pittan01$initConf);
 				return _Utils_Tuple2(
 					_Utils_update(
 						model,
@@ -25370,12 +25387,13 @@ var $author$project$Pittan03$update = F2(
 					$elm$core$Platform$Cmd$none);
 		}
 	});
-var $author$project$Pittan03$PMove = function (a) {
+var $author$project$Pittan01$PMove = function (a) {
 	return {$: 'PMove', a: a};
 };
-var $author$project$Pittan03$PUp = function (a) {
+var $author$project$Pittan01$PUp = function (a) {
 	return {$: 'PUp', a: a};
 };
+var $elm$html$Html$a = _VirtualDom_node('a');
 var $elm$svg$Svg$Attributes$class = _VirtualDom_attribute('class');
 var $andrewMacmurray$elm_simple_animation$Internal$Animation$duration_ = function (_v0) {
 	var d = _v0.a;
@@ -26006,13 +26024,12 @@ var $andrewMacmurray$elm_simple_animation$Simple$Animation$Animated$node = F5(
 				els));
 	});
 var $andrewMacmurray$elm_simple_animation$Simple$Animation$Animated$svg = $andrewMacmurray$elm_simple_animation$Simple$Animation$Animated$node;
-var $author$project$Pittan03$animatedSvg = $andrewMacmurray$elm_simple_animation$Simple$Animation$Animated$svg(
+var $author$project$Pittan01$animatedSvg = $andrewMacmurray$elm_simple_animation$Simple$Animation$Animated$svg(
 	{_class: $elm$svg$Svg$Attributes$class});
 var $elm$svg$Svg$trustedNode = _VirtualDom_nodeNS('http://www.w3.org/2000/svg');
 var $elm$svg$Svg$g = $elm$svg$Svg$trustedNode('g');
-var $author$project$Pittan03$animatedCover = $author$project$Pittan03$animatedSvg($elm$svg$Svg$g);
+var $author$project$Pittan01$animatedCover = $author$project$Pittan01$animatedSvg($elm$svg$Svg$g);
 var $elm$svg$Svg$Attributes$fill = _VirtualDom_attribute('fill');
-var $elm$svg$Svg$Attributes$fillOpacity = _VirtualDom_attribute('fill-opacity');
 var $elm$svg$Svg$Attributes$height = _VirtualDom_attribute('height');
 var $elm$svg$Svg$rect = $elm$svg$Svg$trustedNode('rect');
 var $elm$svg$Svg$Attributes$stroke = _VirtualDom_attribute('stroke');
@@ -26020,23 +26037,22 @@ var $elm$svg$Svg$Attributes$strokeWidth = _VirtualDom_attribute('stroke-width');
 var $elm$svg$Svg$Attributes$width = _VirtualDom_attribute('width');
 var $elm$svg$Svg$Attributes$x = _VirtualDom_attribute('x');
 var $elm$svg$Svg$Attributes$y = _VirtualDom_attribute('y');
-var $author$project$Pittan03$cellView = function (cell) {
+var $author$project$Pittan01$cellView = function (cell) {
 	return A2(
 		$elm$svg$Svg$rect,
 		_List_fromArray(
 			[
 				$elm$svg$Svg$Attributes$x(
-				$elm$core$String$fromInt($author$project$Pittan03$unit * cell.x)),
+				$elm$core$String$fromInt($author$project$Pittan01$unit * cell.x)),
 				$elm$svg$Svg$Attributes$y(
-				$elm$core$String$fromInt($author$project$Pittan03$unit * cell.y)),
+				$elm$core$String$fromInt($author$project$Pittan01$unit * cell.y)),
 				$elm$svg$Svg$Attributes$width(
-				$elm$core$String$fromInt($author$project$Pittan03$unit)),
+				$elm$core$String$fromInt($author$project$Pittan01$unit)),
 				$elm$svg$Svg$Attributes$height(
-				$elm$core$String$fromInt($author$project$Pittan03$unit)),
+				$elm$core$String$fromInt($author$project$Pittan01$unit)),
 				$elm$svg$Svg$Attributes$stroke('black'),
 				$elm$svg$Svg$Attributes$strokeWidth('2px'),
-				$elm$svg$Svg$Attributes$fill('red'),
-				$elm$svg$Svg$Attributes$fillOpacity('0.3')
+				$elm$svg$Svg$Attributes$fill('pink')
 			]),
 		_List_Nil);
 };
@@ -26200,7 +26216,7 @@ var $andrewMacmurray$elm_simple_animation$Internal$Transform$Y = function (a) {
 };
 var $andrewMacmurray$elm_simple_animation$Internal$Transform$y = A2($elm$core$Basics$composeL, $andrewMacmurray$elm_simple_animation$Internal$Transform$Translate, $andrewMacmurray$elm_simple_animation$Internal$Transform$Y);
 var $andrewMacmurray$elm_simple_animation$Simple$Animation$Property$y = A2($elm$core$Basics$composeL, $andrewMacmurray$elm_simple_animation$Internal$Animation$Property$Transform, $andrewMacmurray$elm_simple_animation$Internal$Transform$y);
-var $author$project$Pittan03$coverAnimation = function (ranges) {
+var $author$project$Pittan01$coverAnimation = function (ranges) {
 	var yMin = function (range) {
 		return A2(
 			$elm$core$Maybe$withDefault,
@@ -26256,9 +26272,9 @@ var $author$project$Pittan03$coverAnimation = function (ranges) {
 			_List_fromArray(
 				[
 					$andrewMacmurray$elm_simple_animation$Simple$Animation$Property$x(
-					$author$project$Pittan03$unit * xMin(range)),
+					$author$project$Pittan01$unit * xMin(range)),
 					$andrewMacmurray$elm_simple_animation$Simple$Animation$Property$y(
-					$author$project$Pittan03$unit * yMin(range)),
+					$author$project$Pittan01$unit * yMin(range)),
 					A2(
 					$andrewMacmurray$elm_simple_animation$Simple$Animation$Property$scaleXY,
 					(xMax(range) - xMin(range)) + 1,
@@ -26288,17 +26304,18 @@ var $author$project$Pittan03$coverAnimation = function (ranges) {
 						]))
 				])));
 };
-var $author$project$Pittan03$boardView = function (model) {
+var $elm$svg$Svg$Attributes$fillOpacity = _VirtualDom_attribute('fill-opacity');
+var $author$project$Pittan01$boardView = function (model) {
 	return A2(
 		$elm$svg$Svg$g,
 		_List_Nil,
 		_Utils_ap(
-			A2($elm$core$List$map, $author$project$Pittan03$cellView, model.board),
+			A2($elm$core$List$map, $author$project$Pittan01$cellView, model.board),
 			_List_fromArray(
 				[
 					A3(
-					$author$project$Pittan03$animatedCover,
-					$author$project$Pittan03$coverAnimation(model.newWordsAt),
+					$author$project$Pittan01$animatedCover,
+					$author$project$Pittan01$coverAnimation(model.newWordsAt),
 					_List_Nil,
 					_List_fromArray(
 						[
@@ -26307,21 +26324,22 @@ var $author$project$Pittan03$boardView = function (model) {
 							_List_fromArray(
 								[
 									$elm$svg$Svg$Attributes$width(
-									$elm$core$String$fromInt($author$project$Pittan03$unit)),
+									$elm$core$String$fromInt($author$project$Pittan01$unit)),
 									$elm$svg$Svg$Attributes$height(
-									$elm$core$String$fromInt($author$project$Pittan03$unit)),
-									$elm$svg$Svg$Attributes$fill('orange'),
+									$elm$core$String$fromInt($author$project$Pittan01$unit)),
+									$elm$svg$Svg$Attributes$fill('red'),
 									$elm$svg$Svg$Attributes$fillOpacity('0.3'),
 									$elm$svg$Svg$Attributes$stroke('yellow'),
-									$elm$svg$Svg$Attributes$strokeWidth('8px')
+									$elm$svg$Svg$Attributes$strokeWidth('5px')
 								]),
 							_List_Nil)
 						]))
 				])));
 };
-var $author$project$Pittan03$CursorMinus = {$: 'CursorMinus'};
-var $author$project$Pittan03$CursorPlus = {$: 'CursorPlus'};
-var $author$project$Pittan03$GenPiece = F2(
+var $elm$html$Html$br = _VirtualDom_node('br');
+var $author$project$Pittan01$CursorMinus = {$: 'CursorMinus'};
+var $author$project$Pittan01$CursorPlus = {$: 'CursorPlus'};
+var $author$project$Pittan01$GenPiece = F2(
 	function (a, b) {
 		return {$: 'GenPiece', a: a, b: b};
 	});
@@ -26500,7 +26518,7 @@ var $elm$core$Tuple$second = function (_v0) {
 var $elm$svg$Svg$text = $elm$virtual_dom$VirtualDom$text;
 var $elm$svg$Svg$text_ = $elm$svg$Svg$trustedNode('text');
 var $elm$svg$Svg$Attributes$transform = _VirtualDom_attribute('transform');
-var $author$project$Pittan03$candView = function (model) {
+var $author$project$Pittan01$candView = function (model) {
 	var letterView = F2(
 		function (i, c) {
 			return A2(
@@ -26508,13 +26526,13 @@ var $author$project$Pittan03$candView = function (model) {
 				_List_fromArray(
 					[
 						$elm$svg$Svg$Attributes$transform(
-						'translate (0' + (',' + ($elm$core$String$fromInt((i + model.cursor) * $author$project$Pittan03$unit) + ')'))),
+						'translate (0' + (',' + ($elm$core$String$fromInt((i + model.cursor) * $author$project$Pittan01$unit) + ')'))),
 						$elm$svg$Svg$Attributes$clipPath('url(#candClip)'),
 						$mpizenberg$elm_pointer_events$Html$Events$Extra$Pointer$onDown(
 						function (event) {
-							return $author$project$Pittan03$GenPiece(
+							return $author$project$Pittan01$GenPiece(
 								A5(
-									$author$project$Pittan03$Piece,
+									$author$project$Pittan01$Piece,
 									$elm$core$List$length(model.conf),
 									1,
 									(i + model.cursor) + 1,
@@ -26530,9 +26548,9 @@ var $author$project$Pittan03$candView = function (model) {
 						_List_fromArray(
 							[
 								$elm$svg$Svg$Attributes$width(
-								$elm$core$String$fromInt($author$project$Pittan03$unit)),
+								$elm$core$String$fromInt($author$project$Pittan01$unit)),
 								$elm$svg$Svg$Attributes$height(
-								$elm$core$String$fromInt($author$project$Pittan03$unit)),
+								$elm$core$String$fromInt($author$project$Pittan01$unit)),
 								$elm$svg$Svg$Attributes$fill('yellow'),
 								$elm$svg$Svg$Attributes$fillOpacity('0.1'),
 								$elm$svg$Svg$Attributes$stroke('black'),
@@ -26545,11 +26563,11 @@ var $author$project$Pittan03$candView = function (model) {
 						_List_fromArray(
 							[
 								$elm$svg$Svg$Attributes$x(
-								$elm$core$String$fromInt(($author$project$Pittan03$unit / 4) | 0)),
+								$elm$core$String$fromInt(($author$project$Pittan01$unit / 4) | 0)),
 								$elm$svg$Svg$Attributes$y(
-								$elm$core$String$fromInt(((2 * $author$project$Pittan03$unit) / 3) | 0)),
+								$elm$core$String$fromInt(((2 * $author$project$Pittan01$unit) / 3) | 0)),
 								$elm$svg$Svg$Attributes$fontSize(
-								$elm$core$String$fromInt(($author$project$Pittan03$unit / 2) | 0)),
+								$elm$core$String$fromInt(($author$project$Pittan01$unit / 2) | 0)),
 								$elm$svg$Svg$Attributes$stroke('black'),
 								$elm$svg$Svg$Attributes$clipPath('url(#candClip)')
 							]),
@@ -26564,7 +26582,7 @@ var $author$project$Pittan03$candView = function (model) {
 		_List_fromArray(
 			[
 				$elm$svg$Svg$Attributes$transform(
-				'translate(60,' + ($elm$core$String$fromInt($author$project$Pittan03$unit) + ')'))
+				'translate(60,' + ($elm$core$String$fromInt($author$project$Pittan01$unit) + ')'))
 			]),
 		_List_fromArray(
 			[
@@ -26580,9 +26598,9 @@ var $author$project$Pittan03$candView = function (model) {
 				_List_fromArray(
 					[
 						$elm$svg$Svg$Attributes$d(
-						'M 0 -5 l ' + ($elm$core$String$fromInt($author$project$Pittan03$unit) + (' 0 l ' + ($elm$core$String$fromInt(((-$author$project$Pittan03$unit) / 2) | 0) + (' ' + ($elm$core$String$fromInt(((-$author$project$Pittan03$unit) / 2) | 0) + ' z')))))),
+						'M 0 -5 l ' + ($elm$core$String$fromInt($author$project$Pittan01$unit) + (' 0 l ' + ($elm$core$String$fromInt(((-$author$project$Pittan01$unit) / 2) | 0) + (' ' + ($elm$core$String$fromInt(((-$author$project$Pittan01$unit) / 2) | 0) + ' z')))))),
 						$elm$svg$Svg$Attributes$fill('black'),
-						$elm$svg$Svg$Events$onClick($author$project$Pittan03$CursorPlus)
+						$elm$svg$Svg$Events$onClick($author$project$Pittan01$CursorPlus)
 					]),
 				_List_Nil),
 				A2(
@@ -26590,31 +26608,45 @@ var $author$project$Pittan03$candView = function (model) {
 				_List_fromArray(
 					[
 						$elm$svg$Svg$Attributes$d(
-						'M 0 ' + ($elm$core$String$fromInt((8 * $author$project$Pittan03$unit) + 5) + (' l ' + ($elm$core$String$fromInt($author$project$Pittan03$unit) + (' 0 l ' + ($elm$core$String$fromInt(((-$author$project$Pittan03$unit) / 2) | 0) + (' ' + ($elm$core$String$fromInt(($author$project$Pittan03$unit / 2) | 0) + ' z')))))))),
+						'M 0 ' + ($elm$core$String$fromInt((8 * $author$project$Pittan01$unit) + 5) + (' l ' + ($elm$core$String$fromInt($author$project$Pittan01$unit) + (' 0 l ' + ($elm$core$String$fromInt(((-$author$project$Pittan01$unit) / 2) | 0) + (' ' + ($elm$core$String$fromInt(($author$project$Pittan01$unit / 2) | 0) + ' z')))))))),
 						$elm$svg$Svg$Attributes$fill('black'),
-						$elm$svg$Svg$Events$onClick($author$project$Pittan03$CursorMinus)
+						$elm$svg$Svg$Events$onClick($author$project$Pittan01$CursorMinus)
 					]),
 				_List_Nil)
 			]));
 };
 var $elm$svg$Svg$clipPath = $elm$svg$Svg$trustedNode('clipPath');
 var $elm$html$Html$div = _VirtualDom_node('div');
+var $elm$json$Json$Encode$string = _Json_wrap;
+var $elm$html$Html$Attributes$stringProperty = F2(
+	function (key, string) {
+		return A2(
+			_VirtualDom_property,
+			key,
+			$elm$json$Json$Encode$string(string));
+	});
+var $elm$html$Html$Attributes$href = function (url) {
+	return A2(
+		$elm$html$Html$Attributes$stringProperty,
+		'href',
+		_VirtualDom_noJavaScriptUri(url));
+};
 var $elm$svg$Svg$Attributes$id = _VirtualDom_attribute('id');
 var $elm$html$Html$li = _VirtualDom_node('li');
 var $mpizenberg$elm_pointer_events$Html$Events$Extra$Pointer$onMove = A2($mpizenberg$elm_pointer_events$Html$Events$Extra$Pointer$onWithOptions, 'pointermove', $mpizenberg$elm_pointer_events$Html$Events$Extra$Pointer$defaultOptions);
 var $mpizenberg$elm_pointer_events$Html$Events$Extra$Pointer$onUp = A2($mpizenberg$elm_pointer_events$Html$Events$Extra$Pointer$onWithOptions, 'pointerup', $mpizenberg$elm_pointer_events$Html$Events$Extra$Pointer$defaultOptions);
-var $author$project$Pittan03$PDown = F2(
+var $author$project$Pittan01$PDown = F2(
 	function (a, b) {
 		return {$: 'PDown', a: a, b: b};
 	});
-var $author$project$Pittan03$pieceView = F2(
+var $author$project$Pittan01$pieceView = F2(
 	function (piece, model) {
 		var msg = piece.used ? _List_Nil : _List_fromArray(
 			[
 				$mpizenberg$elm_pointer_events$Html$Events$Extra$Pointer$onDown(
 				function (event) {
 					return A2(
-						$author$project$Pittan03$PDown,
+						$author$project$Pittan01$PDown,
 						piece.id,
 						{x: event.pointer.offsetPos.a, y: event.pointer.offsetPos.b});
 				})
@@ -26637,7 +26669,7 @@ var $author$project$Pittan03$pieceView = F2(
 				return _Utils_eq(id, piece.id) ? (model.nowAt.x - model.startedAt.x) : 0;
 			}
 		}();
-		var dstring = 'translate(' + ($elm$core$String$fromFloat((piece.x * $author$project$Pittan03$unit) + dx) + (', ' + ($elm$core$String$fromFloat((piece.y * $author$project$Pittan03$unit) + dy) + ')')));
+		var dstring = 'translate(' + ($elm$core$String$fromFloat((piece.x * $author$project$Pittan01$unit) + dx) + (', ' + ($elm$core$String$fromFloat((piece.y * $author$project$Pittan01$unit) + dy) + ')')));
 		return A2(
 			$elm$svg$Svg$g,
 			_Utils_ap(
@@ -26653,9 +26685,9 @@ var $author$project$Pittan03$pieceView = F2(
 					_List_fromArray(
 						[
 							$elm$svg$Svg$Attributes$width(
-							$elm$core$String$fromInt($author$project$Pittan03$unit)),
+							$elm$core$String$fromInt($author$project$Pittan01$unit)),
 							$elm$svg$Svg$Attributes$height(
-							$elm$core$String$fromInt($author$project$Pittan03$unit)),
+							$elm$core$String$fromInt($author$project$Pittan01$unit)),
 							$elm$svg$Svg$Attributes$fill('red'),
 							$elm$svg$Svg$Attributes$fillOpacity('0.4'),
 							$elm$svg$Svg$Attributes$stroke('black')
@@ -26666,11 +26698,11 @@ var $author$project$Pittan03$pieceView = F2(
 					_List_fromArray(
 						[
 							$elm$svg$Svg$Attributes$x(
-							$elm$core$String$fromInt(($author$project$Pittan03$unit / 4) | 0)),
+							$elm$core$String$fromInt(($author$project$Pittan01$unit / 4) | 0)),
 							$elm$svg$Svg$Attributes$y(
-							$elm$core$String$fromInt(((2 * $author$project$Pittan03$unit) / 3) | 0)),
+							$elm$core$String$fromInt(((2 * $author$project$Pittan01$unit) / 3) | 0)),
 							$elm$svg$Svg$Attributes$fontSize(
-							$elm$core$String$fromInt(($author$project$Pittan03$unit / 2) | 0)),
+							$elm$core$String$fromInt(($author$project$Pittan01$unit / 2) | 0)),
 							$elm$svg$Svg$Attributes$stroke('black')
 						]),
 					_List_fromArray(
@@ -26681,7 +26713,7 @@ var $author$project$Pittan03$pieceView = F2(
 	});
 var $elm$svg$Svg$svg = $elm$svg$Svg$trustedNode('svg');
 var $elm$html$Html$ul = _VirtualDom_node('ul');
-var $author$project$Pittan03$view = function (model) {
+var $author$project$Pittan01$view = function (model) {
 	return A2(
 		$elm$html$Html$div,
 		_List_Nil,
@@ -26695,19 +26727,19 @@ var $author$project$Pittan03$view = function (model) {
 						$elm$svg$Svg$Attributes$height('800'),
 						$mpizenberg$elm_pointer_events$Html$Events$Extra$Pointer$onMove(
 						function (event) {
-							return $author$project$Pittan03$PMove(
+							return $author$project$Pittan01$PMove(
 								{x: event.pointer.offsetPos.a, y: event.pointer.offsetPos.b});
 						}),
 						$mpizenberg$elm_pointer_events$Html$Events$Extra$Pointer$onUp(
 						function (event) {
-							return $author$project$Pittan03$PUp(
+							return $author$project$Pittan01$PUp(
 								{x: event.pointer.offsetPos.a, y: event.pointer.offsetPos.b});
 						})
 					]),
 				_Utils_ap(
 					_List_fromArray(
 						[
-							$author$project$Pittan03$boardView(model)
+							$author$project$Pittan01$boardView(model)
 						]),
 					_Utils_ap(
 						_List_fromArray(
@@ -26727,9 +26759,9 @@ var $author$project$Pittan03$view = function (model) {
 												$elm$svg$Svg$Attributes$x('0'),
 												$elm$svg$Svg$Attributes$y('0'),
 												$elm$svg$Svg$Attributes$width(
-												$elm$core$String$fromInt($author$project$Pittan03$unit)),
+												$elm$core$String$fromInt($author$project$Pittan01$unit)),
 												$elm$svg$Svg$Attributes$height(
-												$elm$core$String$fromInt(8 * $author$project$Pittan03$unit))
+												$elm$core$String$fromInt(8 * $author$project$Pittan01$unit))
 											]),
 										_List_Nil),
 										A2(
@@ -26744,13 +26776,13 @@ var $author$project$Pittan03$view = function (model) {
 						_Utils_ap(
 							_List_fromArray(
 								[
-									$author$project$Pittan03$candView(model)
+									$author$project$Pittan01$candView(model)
 								]),
 							_Utils_ap(
 								A2(
 									$elm$core$List$map,
 									function (p) {
-										return A2($author$project$Pittan03$pieceView, p, model);
+										return A2($author$project$Pittan01$pieceView, p, model);
 									},
 									model.conf),
 								_List_fromArray(
@@ -26768,6 +26800,17 @@ var $author$project$Pittan03$view = function (model) {
 												model.completed ? $elm$html$Html$text('💯') : $elm$html$Html$text('')
 											]))
 									])))))),
+				A2($elm$html$Html$br, _List_Nil, _List_Nil),
+				A2(
+				$elm$html$Html$a,
+				_List_fromArray(
+					[
+						$elm$html$Html$Attributes$href('index.html')
+					]),
+				_List_fromArray(
+					[
+						$elm$html$Html$text('メニュー')
+					])),
 				A2(
 				$elm$html$Html$ul,
 				_List_Nil,
@@ -26785,25 +26828,7 @@ var $author$project$Pittan03$view = function (model) {
 					model.foundWords))
 			]));
 };
-var $author$project$Pittan03$main = $elm$browser$Browser$element(
-	{init: $author$project$Pittan03$init, subscriptions: $author$project$Pittan03$subscriptions, update: $author$project$Pittan03$update, view: $author$project$Pittan03$view});
-_Platform_export({'Pittan03':{'init':$author$project$Pittan03$main(
+var $author$project$Pittan01$main = $elm$browser$Browser$element(
+	{init: $author$project$Pittan01$init, subscriptions: $author$project$Pittan01$subscriptions, update: $author$project$Pittan01$update, view: $author$project$Pittan01$view});
+_Platform_export({'Pittan01':{'init':$author$project$Pittan01$main(
 	$elm$json$Json$Decode$succeed(_Utils_Tuple0))(0)}});}(this));
-
-  var app = Elm.Pittan03.init({ node: document.getElementById("elm") });
-}
-catch (e)
-{
-  // display initialization errors (e.g. bad flags, infinite recursion)
-  var header = document.createElement("h1");
-  header.style.fontFamily = "monospace";
-  header.innerText = "Initialization Error";
-  var pre = document.getElementById("elm");
-  document.body.insertBefore(header, pre);
-  pre.innerText = e;
-  throw e;
-}
-</script>
-
-</body>
-</html>

@@ -24744,7 +24744,12 @@ var $author$project$Pittan02$fromDictionary = F2(
 							hWordAt(range));
 					}),
 				_List_Nil,
-				hRanges));
+				A2(
+					$elm$core$List$filter,
+					function (range) {
+						return $elm$core$List$length(range) > 1;
+					},
+					hRanges)));
 		var col = A2(
 			$elm$core$List$sortBy,
 			function ($) {
@@ -24864,9 +24869,23 @@ var $author$project$Pittan02$fromDictionary = F2(
 							vWordAt(range));
 					}),
 				_List_Nil,
-				vRanges));
+				A2(
+					$elm$core$List$filter,
+					function (range) {
+						return $elm$core$List$length(range) > 1;
+					},
+					vRanges)));
 		return _Utils_ap(hWords, vWords);
 	});
+var $elm$core$List$head = function (list) {
+	if (list.b) {
+		var x = list.a;
+		var xs = list.b;
+		return $elm$core$Maybe$Just(x);
+	} else {
+		return $elm$core$Maybe$Nothing;
+	}
+};
 var $elm$core$List$any = F2(
 	function (isOkay, list) {
 		any:
@@ -24901,9 +24920,6 @@ var $elm$core$Basics$negate = function (n) {
 	return -n;
 };
 var $elm$core$Basics$neq = _Utils_notEqual;
-var $elm$core$List$sort = function (xs) {
-	return A2($elm$core$List$sortBy, $elm$core$Basics$identity, xs);
-};
 var $author$project$Pittan02$unit = 60;
 var $elm$core$Dict$member = F2(
 	function (key, dict) {
@@ -25185,7 +25201,12 @@ var $author$project$Pittan02$valid = F2(
 					}),
 				_List_Nil,
 				vRanges));
-		return _Utils_ap(hWords, vWords);
+		return A2(
+			$elm$core$List$filter,
+			function (range) {
+				return $elm$core$List$length(range) > 1;
+			},
+			_Utils_ap(hWords, vWords));
 	});
 var $author$project$Pittan02$update = F2(
 	function (msg, model) {
@@ -25215,24 +25236,23 @@ var $author$project$Pittan02$update = F2(
 				var x = $elm$core$Basics$floor(pos.x / $author$project$Pittan02$unit);
 				var removeChar = F2(
 					function (c, list) {
-						return $elm$core$List$sort(
+						return A2(
+							$elm$core$List$append,
 							A2(
-								$elm$core$List$append,
-								A2(
-									$elm$core$List$drop,
-									1,
-									A2(
-										$elm$core$List$filter,
-										function (d) {
-											return _Utils_eq(c, d);
-										},
-										list)),
+								$elm$core$List$drop,
+								1,
 								A2(
 									$elm$core$List$filter,
 									function (d) {
-										return !_Utils_eq(c, d);
+										return _Utils_eq(c, d);
 									},
-									list)));
+									list)),
+							A2(
+								$elm$core$List$filter,
+								function (d) {
+									return !_Utils_eq(c, d);
+								},
+								list));
 					});
 				var putChars = A2(
 					$elm$core$List$map,
@@ -25269,6 +25289,16 @@ var $author$project$Pittan02$update = F2(
 					$author$project$Pittan02$fromDictionary,
 					newConf,
 					A2($author$project$Pittan02$Cell, x, y));
+				var newlyAddedChar = A2(
+					$elm$core$Maybe$withDefault,
+					A5($author$project$Pittan02$Piece, -1, x, y, '', false),
+					$elm$core$List$head(
+						A2(
+							$elm$core$List$filter,
+							function (p) {
+								return _Utils_eq(p.x, x) && _Utils_eq(p.y, y);
+							},
+							newConf))).c;
 				var makeWord = A2(
 					$author$project$Pittan02$valid,
 					newConf,
@@ -25283,14 +25313,7 @@ var $author$project$Pittan02$update = F2(
 					_Utils_update(
 						model,
 						{
-							candidates: ($elm$core$List$length(makeWord) > 0) ? A3(
-								$elm$core$List$foldl,
-								F2(
-									function (c, list) {
-										return A2(removeChar, c, list);
-									}),
-								model.candidates,
-								putChars) : model.candidates,
+							candidates: ($elm$core$List$length(makeWord) > 0) ? A2(removeChar, newlyAddedChar, model.candidates) : model.candidates,
 							completed: _Utils_eq(
 								$elm$core$List$length(model.conf),
 								$elm$core$List$length(model.board)),
@@ -25735,15 +25758,6 @@ var $andrewMacmurray$elm_simple_animation$Internal$Unit$pc = function (n) {
 	return $elm$core$String$fromFloat(n) + '%';
 };
 var $andrewMacmurray$elm_simple_animation$Internal$Animation$Property$filterMaybes = $elm$core$List$filterMap($elm$core$Basics$identity);
-var $elm$core$List$head = function (list) {
-	if (list.b) {
-		var x = list.a;
-		var xs = list.b;
-		return $elm$core$Maybe$Just(x);
-	} else {
-		return $elm$core$Maybe$Nothing;
-	}
-};
 var $andrewMacmurray$elm_simple_animation$Internal$Animation$Property$getProp = function (f) {
 	return A2(
 		$elm$core$Basics$composeR,

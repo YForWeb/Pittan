@@ -170,6 +170,8 @@ update msg model =
                                        ) model.conf
                           else
                               List.filter (\p -> p.id /= (Maybe.withDefault (-1) <| model.moving)) model.conf
+                newlyAddedChar = .c <| Maybe.withDefault (Piece -1 x y "" False) <|
+                                 List.head <| List.filter (\p -> p.x==x && p.y==y) newConf
                 makeWord = valid newConf (Cell x y)
                 newWords = fromDictionary newConf (Cell x y)
                 putChars = List.map .c model.conf
@@ -187,7 +189,8 @@ update msg model =
                            else
                               List.filter (\p -> p.id /= (Maybe.withDefault (-1) <| model.moving)) model.conf
                   , candidates = if List.length makeWord > 0 then
-                                     List.foldl (\c list -> removeChar c list) model.candidates putChars
+                                     --List.foldl (\c list -> removeChar c list) model.candidates putChars
+                                     removeChar newlyAddedChar model.candidates
                                  else
                                    model.candidates
                   , newWordsAt = makeWord
@@ -247,7 +250,7 @@ valid conf cell  =
                                  else
                                      cells
                             )
-                     [] hRanges
+                     []  (List.filter (\range -> List.length range > 1) hRanges)
 
         col = List.sortBy .y <| List.filter (\p -> p.x == cell.x ) conf
         yMin = Basics.min cell.y <| Maybe.withDefault cell.y <| List.minimum <| List.map .y col
@@ -270,9 +273,10 @@ valid conf cell  =
                                              else
                                                  cells
                             )
-                     [] vRanges
+                     []  (List.filter (\range -> List.length range > 1) vRanges)
     in
-        (hWords++vWords)
+        List.filter (\range -> List.length range > 1)(hWords++vWords)
+
 
 fromDictionary: Conf -> Cell ->  List String
 fromDictionary conf cell  =
@@ -293,7 +297,7 @@ fromDictionary conf cell  =
                 List.map (\x -> List.filter (\p -> p.x == x) row) range)
         hWords = Debug.log "horizontal" <|
                  List.foldl (\range cells -> cells++(hWordAt range))
-                     [] hRanges
+                     [] (List.filter (\range -> List.length range > 1) hRanges)
 
         col = List.sortBy .y <| List.filter (\p -> p.x == cell.x ) conf
         yMin = Basics.min cell.y <| Maybe.withDefault cell.y <| List.minimum <| List.map .y col
@@ -311,7 +315,7 @@ fromDictionary conf cell  =
                              List.map (\y -> List.filter (\p -> p.y == y) col) range)
         vWords = Debug.log "vertical" <|
                  List.foldl (\range cells -> cells++(vWordAt range))
-                     [] vRanges
+                     [] (List.filter (\range -> List.length range > 1) vRanges)
     in
         (hWords++vWords)
 
